@@ -8,7 +8,7 @@ from sqlalchemy import and_
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres://snofttlonhavfd:435e74114a78b0dcc3037dcd2e9fcefcf03f1c3248c2fa54a1ae1236c5e0f4da@ec2-54-247-160-205.eu-west-1.compute.amazonaws.com:5432/d9sm2e1c0j51tv')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:////tmp/flask_app.db')
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '')
 db = SQLAlchemy(app)
 
