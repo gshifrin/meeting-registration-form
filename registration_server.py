@@ -20,12 +20,11 @@ class Participant(db.Model):
     last_name  = db.Column(db.String(100))
     email = db.Column(db.String(100))
     affiliation = db.Column(db.String(100))
-    country = db.Column(db.String(100))
     lname = db.Column(db.String(100))
     sname = db.Column(db.String(100))
     pronoun = db.Column(db.String(100))
     contact = db.Column(db.String(5))
-    student    = db.Column(db.String(5))
+    student = db.Column(db.String(5))
 
     attend_mon = db.Column(db.String(5))
     attend_tue = db.Column(db.String(5))
@@ -33,8 +32,10 @@ class Participant(db.Model):
     attend_thu = db.Column(db.String(5))
     attend_fri = db.Column(db.String(5))
 
+    dinner_attend = db.Column(db.String(5))
+    dinner_plus_one = db.Column(db.String(5))
     dinner_diet = db.Column(db.String(512))
-    carpool = db.Column(db.String(5))
+    shirt_size = db.Column(db.String(5))
 
     code_of_conduct = db.Column(db.String(5))
 
