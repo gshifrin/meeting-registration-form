@@ -103,16 +103,16 @@
   <body>
     <div class="container">
       <h2>Registration for the 2019 Summer APC DESC meeting</h2>
-      The registration fee for the collaboration meeting is <u><i>228€</i></u> (114€ for 
-      students), which covers attendance to the 5-day meeting, a welcoming cocktail, lunches, 
-      and coffee breaks. Fees do not cover the Collaboration Meeting Dinner on Thursday July 
-      18, 2019 at the Musée d'Orsay. A extra fee of 48€ (15€ for students) will be required 
+      The registration fee for the collaboration meeting is <u><i>228€</i></u> (114€ for
+      students), which covers attendance to the 5-day meeting, a welcoming cocktail, lunches,
+      and coffee breaks. Fees do not cover the Collaboration Meeting Dinner on Thursday July
+      18, 2019 at the Musée d'Orsay. A extra fee of 48€ (15€ for students) will be required
       if you want to attend this dinner.
       <BR><BR>
-      The local organizing committee also offers accommodation for students at a special 
-      price (204€ for 6 nights from the 14th to the 20th of July, 2019) located at the 
-      <a href="http://www.ciup.fr">Cité Universitaire de Paris</a> (subject to availability, 
-      on a first come, first served basis). 
+      The local organizing committee also offers accommodation for students at a special
+      price (204€ for 6 nights from the 14th to the 20th of July, 2019) located at the
+      <a href="http://www.ciup.fr">Cité Universitaire de Paris</a> (subject to availability,
+      on a first come, first served basis).
       <br>
       <br>
       <form action="" method="POST" id="main_form">
@@ -148,7 +148,7 @@
 	  <input type="text" class="form-control" name="affiliation" id="affili" placeholder="Affiliation" maxlength="100" required>
 	  <div class="invalid-feedback">Please provide your affiliation.</div>
 	</div>
-	
+
 	<div class="form-group">
 	  <div class="form-check">
             <input class="form-check-input" type="checkbox" id="contact" name="contact">
@@ -214,7 +214,7 @@
             </div>
 	  </div>
 	</div>
-	
+
 	<hr>
 	<h5>Logistics</h5>
 	<div class="form-group">
@@ -273,7 +273,7 @@
 	    </select>
 	  </div>
 	</div>
-	
+
 	<hr>
 	<div class="form-group">
 	  <div class="form-check">
@@ -340,11 +340,14 @@
 	  <div class="modal-header">
             <h5 class="modal-title">Please complete the payment process to finalize registration</h5>
 	  </div>
-          <div class="modal-body">
+
+          <!-- <div class="modal-body">
             <div class="embed-responsive embed-responsive-1by1">
               <iframe class="embed-responsive-item" src="https://www.azur-colloque.fr/DR01/inscription/inscription/114" allowfullscreen></iframe>
             </div>
-          </div>
+          </div> -->
+          We have received your information, please make sure to complete registration by
+          following the payment process at <a href="https://www.azur-colloque.fr/DR01/inscription/inscription/114">https://www.azur-colloque.fr/DR01/inscription/inscription/114</a>
           <div class="modal-footer">
             <small class="form-text text-muted" align="right">Please make sure to complete the payement process, <u>your registration will not be considered valid otherwise.</u>
               <br>
@@ -403,16 +406,18 @@
 
 
       document.getElementById("register").onclick = function(e) {
-      //Submit partial registration to the server
+
       $.ajax({
       type : 'POST',
       data: $("#main_form").serialize(),
-      url : $("#main_form").attr('action')
-      });
-
-      $('#registrationModal').modal({show: true,
+      url : $("#main_form").attr('action'),
+      success : function(data){
+      $("#registrationModal").modal({show: true,
       keyboard: false,
       backdrop: 'static'});
+      window.open('https://www.azur-colloque.fr/DR01/inscription/inscription/114', '_blank');
+      }});
+
       e.preventDefault();
       return false;
       }
